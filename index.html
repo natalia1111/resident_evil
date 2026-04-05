@@ -342,7 +342,7 @@
         <circle cx="50" cy="50" r="6" fill="#c0392b"/>
       </svg>
     </div>
-    <div class="header-label">Вирусологическая Артефактология</div>
+    <div class="header-label">Кинематографическая артефактология</div>
     <h1>«<span>Обитель зла</span>»<br>vs Реальная наука</h1>
     <div class="header-divider"></div>
     <p>T-вирус: кино или биология?</p>
@@ -389,7 +389,7 @@
       <p class="q-hint">Выбери один вариант</p>
       <div class="choice-list" id="q3-choices">
         <button class="choice-btn" onclick="checkQ3(this,false)">А) Такое возможно: некоторые вирусы уже меняют поведение хозяев за минуты, воздействуя напрямую на нейроны</button>
-        <button class="choice-btn" onclick="checkQ3(this,true)">Б) Реальные вирусы (например, бешенство) действительно влияют на поведение, но процесс занимает дни и недели — мгновенное перепрограммирование нейронов невозможно</button>
+        <button class="choice-btn" data-correct="true" onclick="checkQ3(this,true)">Б) Реальные вирусы (например, бешенство) действительно влияют на поведение, но процесс занимает дни и недели — мгновенное перепрограммирование нейронов невозможно</button>
         <button class="choice-btn" onclick="checkQ3(this,false)">В) Вирусы никогда не влияют на поведение — это исключительно фантастика без какой-либо реальной основы</button>
         <button class="choice-btn" onclick="checkQ3(this,false)">Г) Вирус бешенства работает именно так, как показано в фильме, только медленнее из-за температуры</button>
       </div>
@@ -431,7 +431,7 @@
       <div class="choice-list" id="q5-choices">
         <button class="choice-btn" onclick="checkQ5(this,false)">А) Это полностью реально: ретровирусы могут встраиваться в геном и вызывать быстрые морфологические изменения</button>
         <button class="choice-btn" onclick="checkQ5(this,false)">Б) Возможно при достаточно высокой температуре окружающей среды, ускоряющей биохимические реакции</button>
-        <button class="choice-btn" onclick="checkQ5(this,true)">В) Экспрессия новых генов требует многих поколений клеток и времени — резкие морфологические изменения за часы биологически невозможны при жизни организма</button>
+        <button class="choice-btn" data-correct="true" onclick="checkQ5(this,true)">В) Экспрессия новых генов требует многих поколений клеток и времени — резкие морфологические изменения за часы биологически невозможны при жизни организма</button>
         <button class="choice-btn" onclick="checkQ5(this,false)">Г) Зависит от штамма вируса — некоторые реальные вирусы ускоряют рост клеток в десятки раз</button>
       </div>
       <div class="feedback" id="q5-feedback"></div>
@@ -531,7 +531,7 @@ function checkQ3(btn,correct){
   const btns=document.querySelectorAll('#q3-choices .choice-btn');
   btns.forEach(b=>{ b.disabled=true; b.classList.remove('selected-correct','selected-wrong','reveal-correct'); });
   btn.classList.add(correct?'selected-correct':'selected-wrong');
-  if(!correct) btns.forEach(b=>{ if(b.onclick.toString().includes('true')) b.classList.add('reveal-correct'); });
+  if(!correct) btns.forEach(b=>{ if(b.dataset.correct==='true') b.classList.add('reveal-correct'); });
   const fb=document.getElementById('q3-feedback');
   fb.className='feedback '+(correct?'correct':'wrong');
   fb.innerHTML=correct
@@ -591,7 +591,7 @@ function checkQ5(btn,correct){
   const btns=document.querySelectorAll('#q5-choices .choice-btn');
   btns.forEach(b=>{ b.disabled=true; });
   btn.classList.add(correct?'selected-correct':'selected-wrong');
-  if(!correct) btns.forEach(b=>{ if(b.onclick.toString().includes('true')) b.classList.add('reveal-correct'); });
+  if(!correct) btns.forEach(b=>{ if(b.dataset.correct==='true') b.classList.add('reveal-correct'); });
   const fb=document.getElementById('q5-feedback');
   fb.className='feedback '+(correct?'correct':'wrong');
   fb.innerHTML=correct
@@ -627,7 +627,7 @@ function showResult(){
 }
 
 // ── CERTIFICATE ──
-const CERT_B64='/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
+const CERT_B64=`/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
 IFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAA
 AADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlk
 ZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAA
@@ -2607,7 +2607,7 @@ NP0dqQ5K1Em1+VjBBDUxvcjlFTid64ZPmUno9VMlOVHccXuPI+IhOTgjogUzpfMHZTaCCKLRqauk
 OUVLWuLU2EKk7tJzq1jfuixPtjTEMNral7pUyES1gug28oIIq9DpOWL9SVpNRXtvOBst1LEn0qWp
 P7uq0bJl6qFwaqTb2HaCCL8ngQ9IqPeZTL9YuxrZZH9k/wAeMKjA6jVc1Ek+J0EGCCJ1MRyiYLgV
 QrAiolbW/ZMLDCKg6dVSu1uQMEEQ9HgxyibOqTQdkA5Kzpy7rq2W9uZjSlw+alRNqqics2om+swF
-gB4AeEEEZU9Bowq61L1tme7q4E8pqYHBPJnZKlFGvcQrBBHYYN3P/9k=';
+gB4AeEEEZU9Bowq61L1tme7q4E8pqYHBPJnZKlFGvcQrBBHYYN3P/9k=`;
 
 let certImg=null;
 function initCertImg(cb){
